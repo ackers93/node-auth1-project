@@ -1,11 +1,13 @@
 const express = require("express");
 
-const apiRouter = require("./api-router.js");
+// const apiRouter = require("./api-router.js");
+
+const authRouter = require("../auth/auth-router");
 
 const server = express();
 
 server.use(express.json());
 
-server.use("/api", apiRouter);
+server.use("/api/auth", authRouter);
 
 module.exports = server;

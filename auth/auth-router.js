@@ -9,7 +9,7 @@ const restricted = require("../auth/auth-middleware");
 router.post("/register", (req, res) => {
   let user = req.body;
 
-  const hash = bcrypt.hashSync(req.body.password, 10);
+  const hash = bcrypt.hashSync(user.password, 10);
 
   user.password = hash;
 
@@ -19,6 +19,7 @@ router.post("/register", (req, res) => {
     })
     .catch(error => {
       res.status(500).json(error);
+      console.log(error);
     });
 });
 
